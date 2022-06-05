@@ -64,6 +64,30 @@ if __name__ == '__main__':
     # Predict on the given samples
     y_pred = baseline_model.predict(x)
 
+    ######### LINEAR REGRESSION MODEL ############
+    lr_model_path = './linear_regression_model.pickle'
+    lr_model = load_model(lr_model_path)
+
+    X_ = lr_model[0] #The expanded matrix
+    thetas = lr_model[1]
+
+    y_pred_lr = X_.dot(thetas)
+
+    mse_lr = evaluate_predictions(y_pred_lr, y)
+    print('Linear regression model MSE: {}'.format(mse_lr))
+
+    ######### END OF LINEAR REGRESSION MODEL ###########
+
+    ########### Custom Model ##############
+    MLP_model_path = './nonlinear_model.pickle'
+    MLP_model = load_model(MLP_model_path)
+
+    y_pred_MLP = MLP_model.predict(x)
+
+    mse_MLP = evaluate_predictions(y_pred_MLP, y)
+    print('Custom model MSE: {}'.format(mse_MLP))
+
+    ########### END OF Custom Model ##############
 
     ############################################################################
     # STOP EDITABLE SECTION: do not modify anything below this point.
