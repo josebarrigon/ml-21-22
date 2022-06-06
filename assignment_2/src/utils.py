@@ -5,8 +5,8 @@ from zipfile import ZipFile
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-from tensorflow.keras.datasets import cifar10
-from tensorflow.keras.models import save_model, load_model
+from keras.datasets import cifar10
+from keras.models import save_model, load_model
 
 
 def load_cifar10(num_classes=3):
